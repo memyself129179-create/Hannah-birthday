@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Hannah! ♡</title>
+
+  <style>
+    :root {
+      --pink: #f7b8d0;
+      --blush: #fff0f5;
+      --rose: #e978a5;
+      --berry: #8f315a;
+      --ink: #63364a;
+      --paper: #fffaf7;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, #ffffffa8 0 2px, transparent 3px),
+        radial-gradient(circle at 82% 30%, #ffffff9c 0 2px, transparent 3px),
+        linear-gradient(145deg, #f9c6d9, #ffe8ef 48%, #f5b6cf);
+      background-size: 34px 34px, 43px 43px, auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 18px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-card {
+      width: min(850px, 100%);
+      padding: clamp(26px, 6vw, 64px);
+      text-align: center;
+      background: #fffaf0e8;
+      border: 2px solid #fff;
+      border-radius: 28px 28px 28px 8px;
+      box-shadow: 0 20px 60px #a8497030;
+      position: relative;
+      transform: rotate(-1deg);
+    }
+
+    .tape {
+      position: absolute;
+      width: 118px;
+      height: 30px;
+      top: -13px;
+      left: calc(50% - 59px);
+      background: #f5a8c6c9;
+      transform: rotate(3deg);
+      box-shadow: 0 2px 5px #7b31521a;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .76rem;
+      color: var(--rose);
+      font-weight: 800;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 10vw, 6.8rem);
+      line-height: .98;
+      margin: 16px 0;
+      color: var(--berry);
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      line-height: 1.7;
+      max-width: 590px;
+      margin: 0 auto;
+    }
+
+    .sparkle {
+      display: inline-block;
+      animation: bob 2.4s ease-in-out infinite;
+    }
+
+    .primary-btn, .soft-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 21px;
+      margin: 10px 5px 0;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .primary-btn {
+      color: white;
+      background: var(--berry);
+      box-shadow: 0 7px 0 #6e2343;
+    }
+
+    .soft-btn {
+      color: var(--berry);
+      background: #f9d4e2;
+      border: 1px solid #efabc5;
+    }
+
+    .primary-btn:hover, .soft-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .tiny-note {
+      font-size: .88rem;
+      opacity: .8;
+      margin-top: 20px;
+    }
+
+    .music-player {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-player .soft-btn { margin-top: 0; }
+
+    .music-status {
+      font-size: .85rem;
+      color: #87435f;
+    }
+
+    .section {
+      max-width: 1100px;
+      padding: 70px 20px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading .eyebrow { margin-bottom: 8px; }
+
+    h2 {
+      font: 700 clamp(2rem, 5vw, 3.4rem) Georgia, serif;
+      color: var(--berry);
+      margin: 8px 0 12px;
+    }
+
+    .section-heading p {
+      line-height: 1.7;
+      margin: auto;
+      max-width: 600px;
+    }
+
+    .scrapbook {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .photo-card {
+      background: var(--paper);
+      padding: 12px 12px 18px;
+      box-shadow: 0 10px 25px #8736531c;
+      border: 1px solid white;
+      position: relative;
+    }
+
+    .photo-card:nth-child(1) { transform: rotate(-3deg); }
+    .photo-card:nth-child(2) {
+      transform: rotate(2.5deg);
+      margin-top: 28px;
+    }
+    .photo-card:nth-child(3) { transform: rotate(-1deg); }
+
+    .photo-frame {
+      aspect-ratio: 4 / 4.5;
+      overflow: hidden;
+      background: linear-gradient(145deg, #f9c6d9, #fff1f6);
+      display: grid;
+      place-items: center;
+      border: 1px solid #f4d6e2;
+      position: relative;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .placeholder {
+      text-align: center;
+      padding: 16px;
+      color: #a84f75;
+      line-height: 1.6;
+    }
+
+    .placeholder .big-heart {
+      font-size: 2.8rem;
+      display: block;
+    }
+
+    .photo-caption {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+      padding-top: 14px;
+    }
+
+    .sticker {
+      position: absolute;
+      font-size: 1.65rem;
+      z-index: 2;
+      filter: drop-shadow(0 2px 1px #00000014);
+    }
+
+    .sticker.one {
+      top: -20px;
+      right: -12px;
+      transform: rotate(12deg);
+    }
+
+    .sticker.two {
+      bottom: 54px;
+      left: -16px;
+      transform: rotate(-13deg);
+    }
+
+    .memory-letter {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 48px);
+      background: #fffaf0ed;
+      border: 2px dashed #eaa4bf;
+      border-radius: 22px;
+      box-shadow: 0 12px 32px #a8497018;
+      line-height: 1.9;
+      font-size: 1.08rem;
+    }
+
+    .memory-letter p { margin-top: 0; }
+
+    .signature {
+      text-align: right;
+      color: var(--berry);
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+    }
+
+    .surprise-wrap {
+      text-align: center;
+      padding-top: 35px;
+    }
+
+    .surprise {
+      display: none;
+      max-width: 750px;
+      margin: 28px auto 0;
+    }
+
+    .surprise.show {
+      display: block;
+      animation: appear .7s ease both;
+    }
+
+    .cake {
+      font-size: clamp(5rem, 15vw, 9rem);
+      line-height: 1.3;
+      filter: drop-shadow(0 8px 7px #8d34551f);
+    }
+
+    .fireworks {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 20;
+      display: none;
+    }
+
+    .fireworks.show { display: block; }
+
+    .burst {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      font-size: var(--size);
+      animation: burst 1.8s ease-out both;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      z-index: 15;
+      pointer-events: none;
+      animation: floatUp var(--duration) linear forwards;
+      font-size: var(--size);
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px 50px;
+      color: #87435f;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-9px) rotate(5deg); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes burst {
+      0% { opacity: 0; transform: scale(.2) rotate(-15deg); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.7) rotate(20deg); }
+    }
+
+    @keyframes floatUp {
+      to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+    }
+
+    @media (max-width: 760px) {
+      .scrapbook {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: auto;
+        gap: 30px;
+      }
+
+      .photo-card:nth-child(2) { margin-top: 0; }
+      .hero-card { transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fireworks" id="fireworks" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-card">
+        <span class="tape" aria-hidden="true"></span>
+        <div class="eyebrow">a little birthday surprise ♡</div>
+        <div class="sparkle" aria-hidden="true">✧ ˚ · .</div>
+
+        <h1>Happy Birthday,<br>Hannah!</h1>
+
+        <p class="subtitle">
+          To my Twinnn, my chosen family, and one of the biggest
+          blessings in my life. Today is all about you. ♡
+        </p>
+
+        <div style="margin-top:24px">
+          <button class="primary-btn" id="openLetter" type="button">
+            Open your little surprise 💌
+          </button>
+
+          <button class="soft-btn" id="floatHearts" type="button">
+            Send some love ♡
+          </button>
+        </div>
+
+        <div class="music-player" aria-label="Optional birthday music controls">
+          <button class="soft-btn" id="musicButton" type="button" aria-pressed="false">
+            ▶ Play Born to Die
+          </button>
+          <span class="music-status" id="musicStatus">
+            Add born-to-die.mp3 to this folder, then press play ♡
+          </span>
+        </div>
+
+        <audio id="birthdayAudio" preload="metadata">
+          <source src="./born-to-die.mp3" type="audio/mpeg">
+        </audio>
+
+        <p class="tiny-note">made with lots of love, just for you</p>
+      </div>
+    </section>
+
+    <section class="section" id="memories">
+      <div class="section-heading">
+        <div class="eyebrow">our little corner of the world</div>
+        <h2>Little moments, big memories</h2>
+        <p>
+          Every photo holds a tiny piece of a memory I never want to forget.
+          Here are some of our favourite moments. 🎀
+        </p>
+      </div>
+
+      <div class="scrapbook">
+        <article class="photo-card">
+          <span class="sticker one" aria-hidden="true">♡</span>
+          <div class="photo-frame" id="frame1">
+            <img src="pictures/pic2.jpeg" alt="A favourite memory">
+          </div>
+          <div class="photo-caption">partners in crime ♡</div>
+        </article>
+
+        <article class="photo-card">
+          <span class="sticker two" aria-hidden="true">✿</span>
+          <div class="photo-frame" id="frame2">
+            <img src="pictures/pic1.jpeg" alt="One of our many moments">
+          </div>
+          <div class="photo-caption">Always and forever</div>
+        </article>
+
+        <article class="photo-card">
+          <span class="sticker one" aria-hidden="true">✨</span>
+          <div class="photo-frame" id="frame3">
+            <img src="pictures/pic3.jpeg" alt="My person, always">
+          </div>
+          <div class="photo-caption">my person, always</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div class="eyebrow">a little note from me to you</div>
+        <h2>For my favourite girl</h2>
+        <p>There's something special here, just for you. 💌</p>
+      </div>
+
+      <div style="text-align:center; margin-bottom:22px">
+        <button class="primary-btn" id="revealLetter" type="button">
+          A little letter for my Twinnn!!!💕
+        </button>
+      </div>
+
+      <div class="memory-letter" id="secretLetter" hidden>
+        <p>Dear Hannah — my Twinnn,</p>
+
+        <p>
+          Happy birthday, my Twinnn. 💗 I honestly don’t know how I got so
+          lucky to have you in my life. You’re more than my best friend —
+          you’re my chosen family, my safe place, and the person who can make
+          me laugh even when I don’t feel like smiling. Thank you for every
+          memory, every deep talk, every silly moment, and every time you’ve
+          been there for me in ways you might not even realise. Having you by
+          my side makes life feel a little softer and a lot more beautiful.
+        </p>
+
+        <p>
+          No matter where life takes us or how much things change, I hope you
+          always know that you’ll have a special place in my heart. I’ll
+          always be cheering for you, celebrating your wins, reminding you of
+          your worth on the hard days, and making more ridiculous memories
+          with you. You deserve a year filled with peace, love, answered
+          prayers, and all the little things that make your heart happy. If I
+          could give you one thing, it would be the chance to see yourself
+          through my eyes — then you’d understand just how precious you are to
+          me. Thank you for being my Twinnn. I love you more than words can
+          properly say. Here’s to us, always. 💗
+        </p>
+
+        <p class="signature">
+          Forever your Twinnn, ♡<br>
+          Love you always <br> ~Elizabeth~
+        </p>
+      </div>
+    </section>
+
+    <section class="section surprise-wrap">
+      <div class="section-heading">
+        <div class="eyebrow">one last thing...</div>
+        <h2>Make a birthday wish! 🎂</h2>
+        <p>Close your eyes, make a wish, and tap the button when you're ready.</p>
+      </div>
+
+      <button class="primary-btn" id="wishButton" type="button">
+        I'm ready! ✨
+      </button>
+
+      <div class="surprise" id="surprise" aria-live="polite">
+        <div class="cake" aria-hidden="true">🎂</div>
+        <h2>Make a wish, Hannah! 💖</h2>
+        <p>
+          May your year be full of soft mornings, loud laughter, beautiful
+          surprises, and all the love your heart can hold.
+        </p>
+        <p style="font-size:1.7rem">🎉 🎀 💗 ✨ 🦋 🌷</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>made with ♡ for Hannah, my Twinnn · chosen family, always</footer>
+
+  <script>
+    const openLetter = document.getElementById('openLetter');
+    const memories = document.getElementById('memories');
+    const floatHearts = document.getElementById('floatHearts');
+    const fireworks = document.getElementById('fireworks');
+    const wishButton = document.getElementById('wishButton');
+    const surprise = document.getElementById('surprise');
+
+    const musicButton = document.getElementById('musicButton');
+    const musicStatus = document.getElementById('musicStatus');
+    const birthdayAudio = document.getElementById('birthdayAudio');
+
+    // Music play/pause button
+    musicButton.addEventListener('click', async () => {
+      if (birthdayAudio.paused) {
+        try {
+          await birthdayAudio.play();
+          musicButton.textContent = 'Ⅱ Pause Born to Die';
+          musicButton.setAttribute('aria-pressed', 'true');
+          musicStatus.textContent = 'Playing your song ♡';
+        } catch (error) {
+          musicStatus.textContent =
+            'Could not play the song. Check the MP3 filename and folder.';
+        }
+      } else {
+        birthdayAudio.pause();
+        musicButton.textContent = '▶ Play Born to Die';
+        musicButton.setAttribute('aria-pressed', 'false');
+        musicStatus.textContent = 'Music paused';
+      }
+    });
+
+    birthdayAudio.addEventListener('ended', () => {
+      musicButton.textContent = '▶ Play Born to Die';
+      musicButton.setAttribute('aria-pressed', 'false');
+      musicStatus.textContent = 'Song finished ♡';
+    });
+
+    // Scroll to the scrapbook and send hearts
+    openLetter.addEventListener('click', () => {
+      memories.scrollIntoView({ behavior: 'smooth' });
+
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => createHeart(), i * 100);
+      }
+    });
+
+    // Floating heart animation
+    floatHearts.addEventListener('click', () => {
+      for (let i = 0; i < 22; i++) {
+        setTimeout(() => createHeart(), i * 80);
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('span');
+      heart.className = 'floating-heart';
+      heart.textContent =
+        ['💗', '💕', '♡', '💖', '🎀'][Math.floor(Math.random() * 5)];
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.setProperty('--duration', (3 + Math.random() * 2) + 's');
+      heart.style.setProperty('--size', (16 + Math.random() * 24) + 'px');
+
+      document.body.appendChild(heart);
+      heart.addEventListener('animationend', () => heart.remove());
+    }
+
+    // "I'm ready!" birthday surprise and fireworks
+    wishButton.addEventListener('click', () => {
+      surprise.classList.add('show');
+      fireworks.innerHTML = '';
+      fireworks.classList.add('show');
+
+      const decorations = ['🎆', '✨', '💖', '🎉', '🌟', '💕', '🎊'];
+
+      for (let i = 0; i < 28; i++) {
+        const burst = document.createElement('span');
+        burst.className = 'burst';
+        burst.textContent =
+          decorations[Math.floor(Math.random() * decorations.length)];
+
+        burst.style.setProperty('--x', Math.random() * 94 + 'vw');
+        burst.style.setProperty('--y', Math.random() * 84 + 'vh');
+        burst.style.setProperty('--size', (18 + Math.random() * 25) + 'px');
+        burst.style.animationDelay = Math.random() * .8 + 's';
+
+        fireworks.appendChild(burst);
+      }
+
+      setTimeout(() => fireworks.classList.remove('show'), 2800);
+      surprise.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Reveal or hide the secret birthday letter
+    const revealButton = document.getElementById('revealLetter');
+    const secretLetter = document.getElementById('secretLetter');
+
+    if (revealButton && secretLetter) {
+      revealButton.addEventListener('click', () => {
+        secretLetter.hidden = !secretLetter.hidden;
+
+        revealButton.textContent = secretLetter.hidden
+          ? 'A little letter for my Twinnn!!!💕'
+          : 'Close my letter✨';
+      });
+    }
+  </script>
+</body>
+</html>
